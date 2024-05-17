@@ -1,0 +1,90 @@
+/* shop.css */
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 20px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    color: #f9f9f9;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar a.active {
+    font-weight: bold;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.content {
+    padding: 20px;
+}
+
+.paintings-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.painting {
+    margin: 20px;
+    text-align: center;
+}
+
+.painting img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.price {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}

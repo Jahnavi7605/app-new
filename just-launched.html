@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Launched</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        /* Additional styles for image size and layout */
+        .painting-container {
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            justify-content: space-around; /* Distribute items evenly with some space around */
+        }
+        .painting {
+            width: 200px; /* Adjust image container width */
+            margin: 10px; /* Add some margin between images */
+            text-align: center; /* Center image and price */
+            display: flex; /* Use flexbox for button alignment */
+            flex-direction: column; /* Align buttons vertically */
+        }
+        .painting img {
+            width: 100%; /* Make images fill their container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Add some border radius for aesthetics */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        .add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Make buttons fill their container */
+            margin-top: auto; /* Push button to the bottom */
+        }
+        .add-to-cart:focus {
+            outline: none; /* Remove default focus outline */
+            box-shadow: 0 0 0 2px #007bff; /* Add custom focus style */
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .lightbox-img {
+            width: 100%;
+            height: auto;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #ccc;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button onclick="goBack()">Back</button>
+            <!-- Header content -->
+        </div>
+        <div class="content">
+            <h2>Just Launched</h2>
+            <div class="painting-container">
+                <!-- First painting -->
+                <div class="painting">
+                    <img src="images/just1.jpg" alt="Just Launched 1" onclick="openLightbox('images/just1.jpg')">
+                    <p class="price">$150</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 1', 150)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Second painting -->
+                <div class="painting">
+                    <img src="images/just2.jpg" alt="Just Launched 2" onclick="openLightbox('images/just2.jpg')">
+                    <p class="price">$180</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 2', 180)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Third painting -->
+                <div class="painting">
+                    <img src="images/just3.jpg" alt="Just Launched 3" onclick="openLightbox('images/just3.jpg')">
+                    <p class="price">$200</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 3', 200)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Fourth painting -->
+                <div class="painting">
+                    <img src="images/just4.jpg" alt="Just Launched 4" onclick="openLightbox('images/just4.jpg')">
+                    <p class="price">$170</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 4', 170)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Fifth painting -->
+                <div class="painting">
+                    <img src="images/just5.jpg" alt="Just Launched 5" onclick="openLightbox('images/just5.jpg')">
+                    <p class="price">$220</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 5', 220)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Sixth painting -->
+                <div class="painting">
+                    <img src="images/just6.jpg" alt="Just Launched 6" onclick="openLightbox('images/just6.jpg')">
+                    <p class="price">$190</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 6', 190)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Seventh painting -->
+                <div class="painting">
+                    <img src="images/just7.jpg" alt="Just Launched 7" onclick="openLightbox('images/just7.jpg')">
+                    <p class="price">$240</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 7', 240)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Eighth painting -->
+                <div class="painting">
+                    <img src="images/just8.jpg" alt="Just Launched 8" onclick="openLightbox('images/just8.jpg')">
+                    <p class="price">$210</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 8', 210)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Nineth painting -->
+                <div class="painting">
+                    <img src="images/just9.jpg" alt="Just Launched 7" onclick="openLightbox('images/just7.jpg')">
+                    <p class="price">$240</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 9', 240)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- tenth painting -->
+                <div class="painting">
+                    <img src="images/just10.jpg" alt="Just Launched 8" onclick="openLightbox('images/just8.jpg')">
+                    <p class="price">$210</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 10', 210)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Eleventh painting -->
+                <div class="painting">
+                    <img src="images/just11.jpg" alt="Just Launched 7" onclick="openLightbox('images/just7.jpg')">
+                    <p class="price">$240</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 11', 240)" tabindex="0">Add to Cart</button>
+                </div>
+                <!-- Twelth painting -->
+                <div class="painting">
+                    <img src="images/just12.jpg" alt="Just Launched 8" onclick="openLightbox('images/just8.jpg')">
+                    <p class="price">$210</p>
+                    <button class="add-to-cart" onclick="addToCart('Just Launched 12', 210)" tabindex="0">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <!-- Footer content -->
+        </div>
+    </div>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img src="" alt="Enlarged Image" class="lightbox-content" id="lightbox-img">
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        // Function to add item to cart
+        function addToCart(productName, price) {
+            // Retrieve the current cart items from localStorage or initialize an empty array
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the new item to the cart
+            cartItems.push({ name: productName, price: price });
+
+            // Save the updated cart items back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+
+            // Alert the user that the item has been added to the cart (you can customize this part)
+            alert('Item added to cart!');
+        }
+
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.style.display = 'block';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

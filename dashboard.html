@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Welcome to Splash</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lumanosimo&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- <h1>Splash</h1> -->
+            <div class="navbar">
+                <div class="search-popup" id="search-popup">
+                    <div class="search-popup-content">
+                        <input type="text" placeholder="Search...">
+                        <button onclick="closeSearchPopup()">Close</button>
+                    </div>
+                </div>
+                <a href="#" onclick="openSearchPopup()"><img src="search-logo.png" alt="Search" class="search-logo"></a> <!-- Search logo -->
+                <a>Home</a> <!-- Modified Home link -->
+                <div class="dropdown">
+                    <a href="#">Shop Art</a>
+                    <div class="dropdown-content">
+                        <a href="/acrylic-paintings">Acrylic Paintings</a>
+                        <a href="/abstract-paintings">Abstract Paintings</a>
+                        <a href="/boho-paintings">Boho Paintings</a>
+                    </div>
+                </div>
+                <a href="/just-launched">Just Launched</a>
+                <a href="/gallery-walls">Gallery Walls</a>
+                <a href="/personalized-art">Personalized Art</a>
+                <a href="/about">About</a> <!-- Link to About page -->
+                <div class="dropdown">
+                    <a href="#">Account</a>
+                    <div class="dropdown-content">
+                        <a href="/logout">Logout</a>
+                    </div>
+                </div>
+                <img src="cart-logo.png" alt="Cart" class="cart-logo" onclick="window.location.href='/cart'"> <!-- Cart icon -->
+            </div>
+        </div>
+        <div class="content">
+            <div class="welcome-message">
+                <h2 style="font-family: 'Dancing Script', cursive; font-size: 36px; margin: 0; padding: 0; color: #333;">Splash</h2>
+                <h3>Where Creativity Meets Canvas</h3>
+                <h4 id="welcome-message"></h4>
+            </div>
+
+            <!-- Image Carousel -->
+            <div class="image-carousel">
+                <div class="carousel-slide">
+                    <img src="painting1.jpg" alt="Painting 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="painting2.jpg" alt="Painting 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="painting3.jpg" alt="Painting 3">
+                </div>
+                <button id="prevBtn" class="carousel-nav-btn">&#10094;</button>
+                <button id="nextBtn" class="carousel-nav-btn">&#10095;</button>
+            </div>
+
+
+            <!-- Just Launched Section -->
+            <div class="just-launched-section">
+                <h2>Just Launched</h2>
+                <div class="just-launched-images">
+                    <img src="images/just1.jpg" alt="Just Launched 1">
+                    <img src="images/just2.jpg" alt="Just Launched 2">
+                    <img src="images/just3.jpg" alt="Just Launched 3">
+                    <img src="images/just4.jpg" alt="Just Launched 4">
+                </div>
+                <a href="/just-launched" class="explore-button">Explore Just Launched</a>
+            </div>
+
+            <!-- Gallery Walls Section -->
+            <div class="gallery-walls-section">
+                <h2>Gallery Walls</h2>
+                <div class="gallery-walls-images">
+                    <img src="images/gallery1.jpg" alt="Gallery 1">
+                    <img src="images/gallery2.jpg" alt="Gallery 2">
+                    <img src="images/gallery3.jpg" alt="Gallery 3">
+                    <img src="images/gallery4.jpg" alt="Gallery 4">
+                </div>
+                <a href="/gallery-walls" class="explore-button">Explore Gallery Walls</a>
+            </div>
+
+            <!-- Customer Reviews Section -->
+            <div class="customer-reviews-section">
+                <h2>Customer Reviews</h2>
+                <div class="customer-review">
+                    <p class="quote">"Absolutely mesmerizing! Each stroke tells a story, and I'm thrilled to have it grace my walls." - LilyArt</p>
+                </div>
+                <div class="customer-review">
+                    <p class="quote">"I'm in awe of the talent showcased on this website. The piece I purchased is even more breathtaking in person. Thank you for adding beauty to my home!" - MaxCanvas</p>
+                </div>
+                <div class="customer-review">
+                    <p class="quote">"I've been a collector for years, and I must say, the quality of these artworks is unparalleled. It's evident that the artists pour their hearts into every creation." - SophiaArt</p>
+                </div>
+                <div class="customer-review">
+                    <p class="quote">"Seamless ordering process, my experience with this art website has been superb. The artwork itself is a masterpiece that brings joy to my soul." - OliverArt</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; Splash</p>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>

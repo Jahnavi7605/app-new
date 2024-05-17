@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        /* Additional styles for cart items */
+        .cart-item {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .cart-item img {
+            width: 30px; /* Adjust image size as per your preference */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px;
+        }
+        .remove-item {
+            color: red;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        /* Style for product sections */
+        .product-section {
+            margin: 20px 0;
+        }
+        .product-section div {
+            display: inline-block;
+            margin-right: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- Header content -->
+        </div>
+        <div class="content">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <button onclick="clearCart()">Clear Cart</button>
+
+            <h2>Abstract Paintings</h2>
+            <div id="abstract-paintings" class="product-section">
+                <!-- Abstract paintings will be dynamically added here -->
+            </div>
+
+            <h2>Boho Paintings</h2>
+            <div id="boho-paintings" class="product-section">
+                <!-- Boho paintings will be dynamically added here -->
+            </div>
+
+            <h2>Acrylic Paintings</h2>
+            <div id="acrylic-paintings" class="product-section">
+                <!-- Acrylic paintings will be dynamically added here -->
+            </div>
+        </div>
+        <div class="footer">
+            <!-- Footer content -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            displayCartItems();
+            populateProducts();
+        });
+
+        function displayCartItems() {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            let cartContainer = document.getElementById('cart-items');
+            cartContainer.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML = '<p>No items in the cart.</p>';
+            } else {
+                cartItems.forEach(item => {
+                    let itemElement = document.createElement('div');
+                    itemElement.classList.add('cart-item');
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <p>Name: ${item.name}</p>
+                            <p>Price: $${item.price}</p>
+                        </div>
+                        <span class="remove-item" onclick="removeFromCart('${item.name}')">Remove</span>
+                    `;
+                    cartContainer.appendChild(itemElement);
+                });
+            }
+        }
+
+        function removeFromCart(name) {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems = cartItems.filter(item => item.name !== name);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            displayCartItems();
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+            displayCartItems();
+        }
+
+        // Product objects for Abstract Paintings
+        let abstractPaintings = [
+            {
+                name: "Abstract Painting 1",
+                price: 150,
+                image: "abstract1.jpg"
+            },
+            {
+                name: "Abstract Painting 2",
+                price: 180,
+                image: "images/abstract2.jpg"
+            },
+            {
+                name: "Abstract Painting 3",
+                price: 200,
+                image: "images/abstract3.jpg"
+            },
+            {
+                name: "Abstract Painting 4",
+                price: 170,
+                image: "images/abstract4.jpg"
+            },
+            {
+                name: "Abstract Painting 5",
+                price: 220,
+                image: "images/abstract5.jpg"
+            },
+            {
+                name: "Abstract Painting 6",
+                price: 190,
+                image: "images/abstract6.jpg"
+            },
+            {
+                name: "Abstract Painting 7",
+                price: 240,
+                image: "images/abstract7.jpg"
+            },
+            {
+                name: "Abstract Painting 8",
+                price: 210,
+                image: "images/abstract8.jpg"
+            }
+        ];
+
+        // Product objects for Boho Paintings
+        let bohoPaintings = [
+            {
+                name: "Boho Painting 1",
+                price: 70,
+                image: "images/boho1.jpg"
+            },
+            {
+                name: "Boho Painting 2",
+                price: 75,
+                image: "images/boho2.jpg"
+            },
+            {
+                name: "Boho Painting 3",
+                price: 80,
+                image: "images/boho3.jpg"
+            },
+            {
+                name: "Boho Painting 4",
+                price: 85,
+                image: "images/boho4.jpg"
+            },
+            {
+                name: "Boho Painting 5",
+                price: 90,
+                image: "images/boho5.jpg"
+            },
+            {
+                name: "Boho Painting 6",
+                price: 95,
+                image: "images/boho6.jpg"
+            },
+            {
+                name: "Boho Painting 7",
+                price: 100,
+                image: "images/boho7.jpg"
+            },
+            {
+                name: "Boho Painting 8",
+                price: 105,
+                image: "images/boho8.jpg"
+            }
+        ];
+
+        // Product objects for Acrylic Paintings
+        let acrylicPaintings = [
+            {
+                name: "Acrylic Painting 1",
+                price: 120,
+                image: "images/acrylic1.jpg"
+            },
+            {
+                name: "Acrylic Painting 2",
+                price: 150,
+                image: "images/acrylic2.jpg"
+            },
+            {
+                name: "Acrylic Painting 3",
+                price: 90,
+                image: "images/acrylic3.jpg"
+            },
+            {
+                name: "Acrylic Painting 4",
+                price: 200,
+                image: "images/acrylic4.jpg"
+            },
+            {
+                name: "Acrylic Painting 5",
+                price: 180,
+                image: "images/acrylic5.jpg"
+            },
+            {
+                name: "Acrylic Painting 6",
+                price: 220,
+                image: "images/acrylic6.jpg"
+            },
+            {
+                name: "Acrylic Painting 7",
+                price: 130,
+                image: "images/acrylic7.jpg"
+            }
+        ];
+
+        // Add products to cart function
+        function addToCart(product) {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems.push(product);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            alert('Item added to cart!');
+        }
+
+        // Populate products on page load
+        function populateProducts() {
+            // Populate Abstract Paintings
+            let abstractContainer = document.getElementById('abstract-paintings');
+            abstractPaintings.forEach(painting => {
+                let button = document.createElement('button');
+                button.textContent = 'Add to Cart';
+                button.onclick = function() { addToCart(painting); };
+                let div = document.createElement('div');
+                div.innerHTML = `<img src="${painting.image}" alt="${painting.name}"><p>${painting.name}</p><p>$${painting.price}</p>`;
+                div.appendChild(button);
+                abstractContainer.appendChild(div);
+            });
+
+            // Populate Boho Paintings
+            let bohoContainer = document.getElementById('boho-paintings');
+            bohoPaintings.forEach(painting => {
+                let button = document.createElement('button');
+                button.textContent = 'Add to Cart';
+                button.onclick = function() { addToCart(painting); };
+                let div = document.createElement('div');
+                div.innerHTML = `<img src="${painting.image}" alt="${painting.name}"><p>${painting.name}</p><p>$${painting.price}</p>`;
+                div.appendChild(button);
+                bohoContainer.appendChild(div);
+            });
+
+            // Populate Acrylic Paintings
+            let acrylicContainer = document.getElementById('acrylic-paintings');
+            acrylicPaintings.forEach(painting => {
+                let button = document.createElement('button');
+                button.textContent = 'Add to Cart';
+                button.onclick = function() { addToCart(painting); };
+                let div = document.createElement('div');
+                div.innerHTML = `<img src="${painting.image}" alt="${painting.name}"><p>${painting.name}</p><p>$${painting.price}</p>`;
+                div.appendChild(button);
+                acrylicContainer.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
