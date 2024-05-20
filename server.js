@@ -9,7 +9,7 @@ const register = new promClient.Registry();
 
 
 const app = express();
-const port = 80;
+const port = 3000;
 
 // Create a Histogram to measure HTTP request duration
 const httpRequestDurationMicroseconds = new promClient.Histogram({
